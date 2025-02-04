@@ -1,11 +1,11 @@
 # Sentiment & Emotion Classification
 
 ## Project ID
-**Course:** CIS 480
-**Assignment:** Senior Project
-**Instructor:** Dr. Grabowski
-**Student Name:** Brendon Vineyard
-**Date:** 02/04/2025
+Course: CIS 480
+Assignment: Senior Project
+Instructor: Dr. Grabowski
+Student Name:  Brendon Vineyard
+Date: 02/04/2025
 
 ## Overview
 This project involves processing and analyzing a dataset using machine learning techniques. It includes data preprocessing, model training, and evaluation using both image and text datasets.
