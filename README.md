@@ -4,7 +4,7 @@
 Course: CIS 480
 Assignment: Senior Project
 Instructor: Dr. Grabowski
-Student Name:  Brendon Vineyard
+Student Name: Brendon Vineyard
 Date: 02/04/2025
 
 ## Overview
