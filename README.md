@@ -19,10 +19,28 @@ This project involves processing and analyzing a dataset using machine learning 
     - Labels: 0 (Negative), 2 (Neutral), 4 (Positive)
 
 ## Project Structure
-content/
+## Project Structure
+```
+|-- content/
+|   |-- drive/
+|   |   |-- MyDrive/
+|   |   |   |-- Colab Notebooks/
+|   |   |   |   |-- SENIOR PROJECT/
+|   |   |   |   |   |-- fer-2013/
+|   |   |   |   |   |   |-- fer-2013/
+|   |   |   |   |   |   |   |-- fer-2013/
+|   |   |   |   |   |   |   |   |-- test/
+|   |   |   |   |   |   |   |   |-- train/
+|   |   |   |   |   |   |   |-- fer-2013.zip
+|   |   |   |   |   |-- sentiment140/
+|   |   |   |   |   |   |-- sentiment140.zip
+|   |   |   |   |   |   |-- training.1600000.processed.noemoticon.csv
 
 ## Installation
-N/A
+1. Clone the repository:
+   ```sh
+   git clone <repo-link>
+   ```
 
 ## Steps to Run the Project
 N/A
