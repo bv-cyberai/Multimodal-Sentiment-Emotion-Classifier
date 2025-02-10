@@ -35,6 +35,7 @@ This project involves processing and analyzing a dataset using machine learning 
 |   |   |   |   |   |-- sentiment140/
 |   |   |   |   |   |   |-- sentiment140.zip
 |   |   |   |   |   |   |-- training.1600000.processed.noemoticon.csv
+```
 
 ## Installation
 1. Clone the repository:
