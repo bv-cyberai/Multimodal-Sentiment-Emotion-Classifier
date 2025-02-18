@@ -42,7 +42,7 @@ This project involves processing and analyzing a dataset using machine learning 
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone <repo-link>
+   git clone `https://cs-devel.potsdam.edu/S25-480-vineyabn207/Senior-Project-vineyabn207.git`
    ```
 
 ## Steps to Run the Project
