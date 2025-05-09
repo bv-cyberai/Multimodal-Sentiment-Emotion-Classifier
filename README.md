@@ -1,72 +1,89 @@
-# Sentiment & Emotion Classification
+# Multi-Modal Sentiment and Emotion Classification
 
-## Project ID
-Course: CIS 480
-Assignment: Senior Project
-Instructor: Dr. Grabowski
-Student Name: Brendon Vineyard
-Date: 02/04/2025
+This project presents a multi-modal deep learning system that classifies both **emotion** and **sentiment** from paired **image and text** inputs. The system combines computer vision and natural language processing techniques to better understand affective content, particularly in social media contexts.
 
 ## Overview
-This project involves processing and analyzing a dataset using machine learning techniques. It includes data preprocessing, model training, and evaluation using both image and text datasets.
+
+Traditional models treat image and text inputs separately, missing important emotional context. This project fuses visual and textual signals using:
+
+- Three CNNs trained on facial emotion datasets
+- A BiLSTM model trained on tweet sentiment data
+- A fusion MLP that combines outputs for joint classification
+
+The system is showcased through an interactive Gradio interface that visualizes predictions and confidence scores for sampled dataset examples.
 
 ## Datasets
-- **FER 2013** (Facial Expression Recognition 2013)
-    - 7 emotion categories: Angry, Disgust, Fear, Happy, Neutral, Sad, Surprise
-    - Train/Test split: Pre-organized folders
-- **Sentiment140** (Twitter Sentiment Analysis)
-    - 160,000 training samples, 40,000 test samples
-    - Labels: 0 (Negative), 2 (Neutral), 4 (Positive)
 
-## Project Structure
-## Project Structure
-```
-|-- content/
-|   |-- drive/
-|   |   |-- MyDrive/
-|   |   |   |-- Colab Notebooks/
-|   |   |   |   |-- SENIOR PROJECT/
-|   |   |   |   |   |-- fer-2013/
-|   |   |   |   |   |   |-- fer-2013/
-|   |   |   |   |   |   |   |-- fer-2013/
-|   |   |   |   |   |   |   |   |-- test/
-|   |   |   |   |   |   |   |   |-- train/
-|   |   |   |   |   |   |   |-- fer-2013.zip
-|   |   |   |   |   |-- sentiment140/
-|   |   |   |   |   |   |-- sentiment140.zip
-|   |   |   |   |   |   |-- training.1600000.processed.noemoticon.csv
-|-- README.md
-|-- .vscode
-```
+- **FER-2013** — Grayscale images with labeled facial expressions
+- **RAF-DB** — Real-world affective faces
+- **FER+** — Enhanced FER dataset with crowd-validated labels
+- **Sentiment140** — 1.6M tweets labeled as positive or negative
 
-## Installation
-1. Clone the repository:
-   ```sh
-   git clone https://cs-devel.potsdam.edu/S25-480-vineyabn207/Senior-Project-vineyabn207.git
-   ```
+## Model Architecture
 
-## Steps to Run the Project
-N/A
+- **CNNs**: Trained separately on FER-2013, RAF-DB, and FER+
+- **BiLSTM**: Trained on Sentiment140 for sentiment classification
+- **Fusion MLP**: Takes CNN outputs + BiLSTM output and classifies final emotion/sentiment
+- **Gradio UI**: Displays image-caption pairs, predictions, ground truths, and confidence charts
+
+## Results
+
+- **Emotion Accuracy**: Up to **95%**
+- **Sentiment Accuracy**: Ranged from **82% to 95%**
+- **Fused Accuracy Estimate**: **88.5%–92.5%**
+
+## Features
+
+- Interactive Gradio demo
+- Clean, scrollable gallery format
+- Real-time confidence visualization
+- Ground truth vs predicted label comparison
 
 ## Requirements
-- Python 3.8+
-- TensorFlow 2.18+
-- PyTorch 2.5+
-- NumPy, Pandas, OpenCV, Matplotlib
 
-## GPU Support
-Ensure Tensorflow and PyTorch recognize your GPU:
-```bash
-    python -c "import torch; print(torch.cuda.is_available())"
-    python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+This project runs entirely within a Python notebook environment such as Google Colab or Jupyter Notebook. The following libraries must be available:
+
+- TensorFlow
+- Keras
+- NumPy
+- Pandas
+- scikit-learn
+- matplotlib
+- seaborn
+- Gradio
+
+In Google Colab, you can install any missing dependencies with:
+
+```python
+!pip install gradio seaborn
 ```
 
-## Troubleshooting
-- **GPU Not Detected**
-    - Check CUDA installation (`nvcc --version`)
-    - Check PyTorch & TensorFlow compatibility (`torch.version.cuda` & `tf.test.is_gpu_available()`)
-- **Missing Libraries**
-    - Run `pip install -r n/a`
+## Running the Demo
 
-## License
-N/A?
+1. Open the notebook: `MultiModalModelBrendon.ipynb`
+2. Follow and run ALL the cells to:
+    - Load models and datasets
+    - Process and fuse image and text inputs
+    - Launch the interactive Gradio interface
+3. The trained models are located in the `/Needed Models/` directory if needed.
+4. The demo automatically samples and visualizes predictions using a scrollable gallery of image-caption pairs.
+
+No command-line usage is required.
+
+## Applications
+
+- Social media content moderation
+- Sentiment trend analysis
+- Mental health signal detection
+- Affective computing and digital wellness
+
+## Author
+
+**Brendon Vineyard**  
+Capstone Senior Project, SUNY Potsdam (Spring 2025)  
+Advisor: Dr. Laura Grabowski  
+Email: vineyabn207@potsdam.edu
+
+---
+
+*This project was developed to fulfill the requirements of CIS 480: Senior Project in Computer Science at SUNY Potsdam.*

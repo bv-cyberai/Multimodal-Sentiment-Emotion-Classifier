@@ -1,0 +1,113 @@
+% =======================================
+% Computer Science Capstone Report Template
+% =======================================
+\documentclass[titlepage]{article}
+% Add packages here as needed
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+
+\begin{document}
+
+\title{Final Report\\Multi-Modal Sentiment and Emotion Classification Using Computer Vision and NLP} 
+\author{Brendon Vineyard\\\\Advisor: Dr. Grabowski\\Semester: Spring 2025} 
+\date{\today}
+\maketitle
+
+\begin{abstract}
+This capstone project explores the development of a multi-modal machine learning model designed to classify both sentiment and emotion from social media content by analyzing image and text data together. Traditional approaches treat image and text analysis as separate tasks, but this project aims to fuse the two using Convolutional Neural Networks (CNNs) for facial emotion detection and a Bidirectional LSTM model for sentiment analysis. A neural fusion mechanism was implemented to combine outputs and improve classification accuracy. The model achieved emotion classification accuracy up to 95% and sentiment accuracy ranging from 82% to 95%. The system was trained on publicly available datasets including FER-2013, RAF-DB, FER+, and Sentiment140, and tested through a Gradio app interface. This project demonstrates how combining vision and language data can enhance emotional understanding for applications in mental health, content analysis, and market research.
+\end{abstract}
+
+%The Computer Science capstone report is a 2000---3000 word essay/paper that addresses the areas/topics described below. This template is intended to provide guidance regarding the structure and content of the report. The report itself must be written in paragraph/narrative format. This template document is structured specifically for reporting senior project capstones, more specifically those that focus on implementing a software product. You should be able to ``mine'' your capstone proposal for some part of the information in the final report, but the report must be written in past tense (because it's done now) and must reflect any changes from the original proposal. Please see the \textit{Computer Science Major's Capstone Requirements} document for more detailed information and explanation of the ideas discussed in this template.}
+
+\section{Introduction}
+In the Introduction, you will explain what you did in broad terms. In the introduction, give an overview of the project you completed.
+
+In the Introduction, you will explain what you did and what the output was. That is, what was the proposed project, and what did you produce? You should explain why you wanted to do this project: talk about your interest in and connection to the project. You may include ideas such as what gave you the initial idea for the project, how the project meets a need, and/or how the project provides an improved solution to a problem. The precise details that you choose to include will vary greatly depending on the context of the work that you completed. This section serves as your ``problem statement,'' in which you give a clear and succinct statement of what your intention/idea was with your project, or the problem you were trying to solve.
+
+As with the proposal template, I have included a sample \texttt{.bib} file and some meaningless examples of \LaTeX{ }markups for cross-references \cite{pholdee_hybrid_2017}, in case you have need of references. The need for references is less likely for an internship report, but the information is included here for completeness. Just for the sake of a second example, here is another reference citation \cite{hadka_large-scale_2015}. If desired, you may change citation and reference format by changing the bibliography style in the template. The current style is ``acm'' and is appropriate for Computer Science topics. If you change formats, be sure to check with your faculty advisor in advance to make sure the style is appropriate for Computer Science.
+
+\section{Background}
+The Background section will discuss the process by which you developed and prepared for your project work. This section includes the subsections Preparation and Practice, as described below.
+
+\subsection{Preparation}
+In this section, you will discuss how you prepared to undertake this project. This section often includes reference to specific Computer Science courses that provided the background and fundamental skills to support your project work. You may also include other experiences (\textit{e.g.,} previous independent projects, jobs) that contributed to your preparation.
+
+\subsection{Practice}
+Any capstone experience must both bring together your academic learning \textit{and} go beyond that academic preparation. You will address those issues in this section. How did the capstone synthesize and surpass your academic experiences? You should also include particular professional practice skills that you cultivated with this experience, specifically considering non-technical skills.
+
+\section{Methods}
+This section will provide details about the technical tools and methods you used to produce your project---the building blocks. The section can be organized in different ways that will vary considerably from one project to another. Information that should be detailed in this section includes:
+\begin{itemize}
+\item Specific technical tools used (languages, libraries, toolkits, platforms, \textit{etc.}).
+\item Design and implementation process.
+\item Development methodology that you used.
+\item Coding standards you used in your project.
+\item Management tools you used for the project, including communications tools, organization, and version control.
+\end{itemize}
+
+The Methods section is where you put all the gory technical details. Focus some attention on the tools/skills that were new to you in the project work.
+
+\section{Results}
+This section addresses in more detail what you produced for the capstone. Where the Methods section describes how you tackled the problem, the Results section shows the final outcome. 
+
+As appropriate, you can include code segments or screen captures to illustrate your technical solution and the end product. This section is the equivalent of the live demo during a project presentation. You should show the structure and flow of the user experience with your software, as completely as possible.
+ 
+\section{Conclusion} 
+To conclude your report, bring all the threads of your discussion together to reflect upon how the experience made you a better Computer Scientist. As part of this reflection, provide advice for other students who are preparing for senior projects, with particular focus on things you would have liked to know before beginning your senior project experience.
+ 	
+\bibliography{sampleBibFile}
+\bibliographystyle{acm}
+
+\end{document}
+
+\section{Introduction}
+With the explosive growth of social media platforms, users increasingly express their emotions and opinions through a combination of images and text. Traditional sentiment and emotion classification systems focus on analyzing either text or image inputs in isolation. This creates a gap in understanding emotional context when both modalities are present. This capstone project aims to bridge that gap by creating a multi-modal machine learning model that fuses image and text data to classify both sentiment and emotion. The goal is to build a system that better reflects how people communicate feelings in modern digital spaces, improving use cases such as mental health tracking, social media monitoring, and market research.
+
+\section{Background}
+This project builds on concepts from deep learning, computer vision, and natural language processing (NLP). The image-processing component uses Convolutional Neural Networks (CNNs), a widely adopted architecture for extracting spatial patterns from images. Three different datasets were used for training CNNs on facial expressions: FER-2013, RAF-DB, and FER+. Each contains labeled images representing human emotions such as anger, sadness, fear, happiness, and neutrality.
+
+For textual sentiment classification, this project uses a Bidirectional LSTM (BiLSTM), a type of recurrent neural network capable of capturing long-range dependencies in text sequences. The sentiment model was trained on Sentiment140, a corpus of 1.6 million labeled tweets.
+
+The core idea of the project is multi-modal fusion. By combining the outputs of both CNN and BiLSTM models, the fusion network aims to generate richer predictions that account for both visual and linguistic emotional cues.
+
+\section{Design and Implementation}
+The system architecture consists of two independent branches: the image model and the text model. Each CNN model processes a facial image and outputs a softmax probability vector for emotion classification. These outputs are stacked and passed through a multilayer perceptron (MLP) along with the sentiment predictions from the BiLSTM.
+
+\begin{itemize}
+    \item \textbf{Image Path:} Three CNNs (trained on FER-2013, RAF-DB, and FER+) extract emotion features. Outputs are preprocessed and normalized.
+    \item \textbf{Text Path:} Sentiment140 tweets are tokenized and fed into an embedding layer, followed by a BiLSTM and dense layer for sentiment output.
+    \item \textbf{Fusion Layer:} A neural fusion layer concatenates image and text outputs. Dropout and Batch Normalization were added to improve generalization.
+\end{itemize}
+
+The models were developed using TensorFlow and Keras within Google Colab, utilizing GPU acceleration. Pretraining and weight freezing were used to retain learned features while allowing fusion fine-tuning.
+
+\section{Testing and Evaluation}
+Each sub-model was evaluated independently before integration. The CNN models achieved high accuracy on their respective test sets, with the combined ensemble reaching up to 95\% emotion classification accuracy. The sentiment model achieved between 82\% and 95\% accuracy depending on the evaluation batch.
+
+Final testing involved the fused model classifying pairs of image and text data. Performance was validated using accuracy, loss plots, and confusion matrices. A custom Gradio interface was developed to allow users to upload an image and caption and observe the model's predictions in real time.
+
+\textbf{Challenges Faced:}
+\begin{itemize}
+    \item Aligning emotion classes across multiple datasets
+    \item Balancing the contribution of sentiment vs emotion during training
+    \item Preventing overfitting on smaller image datasets
+\end{itemize}
+
+\section{Conclusion and Future Work}
+This project successfully demonstrates that combining visual and textual data improves emotional classification over single-modality models. The fusion strategy enhanced interpretability and classification accuracy, showing potential for real-world applications like content moderation, marketing analytics, and digital wellness.
+
+Future work could involve:
+\begin{itemize}
+    \item Exploring advanced fusion strategies such as cross-attention or transformers
+    \item Incorporating audio or temporal (video) data for deeper multi-modal understanding
+    \item Expanding the emotion label set to include complex or compound emotions
+\end{itemize}
+
+\section*{References}
+\begin{itemize}
+    \item Goodfellow, I., Bengio, Y., \& Courville, A. (2016). \textit{Deep Learning}. MIT Press.
+    \item FER-2013 dataset: https://www.kaggle.com/datasets/msambare/fer2013
+    \item RAF-DB dataset: https://www.whdeng.cn/RAF/model1.html
+    \item Sentiment140: http://help.sentiment140.com/for-students
+    \item TensorFlow and Keras Documentation
+\end{itemize}
