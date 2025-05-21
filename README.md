@@ -1,89 +1,111 @@
-# Multi-Modal Sentiment and Emotion Classification
+# 🤖 Multi-Modal Sentiment and Emotion Classification
 
-This project presents a multi-modal deep learning system that classifies both **emotion** and **sentiment** from paired **image and text** inputs. The system combines computer vision and natural language processing techniques to better understand affective content, particularly in social media contexts.
-
-## Overview
-
-Traditional models treat image and text inputs separately, missing important emotional context. This project fuses visual and textual signals using:
-
-- Three CNNs trained on facial emotion datasets
-- A BiLSTM model trained on tweet sentiment data
-- A fusion MLP that combines outputs for joint classification
-
-The system is showcased through an interactive Gradio interface that visualizes predictions and confidence scores for sampled dataset examples.
-
-## Datasets
-
-- **FER-2013** — Grayscale images with labeled facial expressions
-- **RAF-DB** — Real-world affective faces
-- **FER+** — Enhanced FER dataset with crowd-validated labels
-- **Sentiment140** — 1.6M tweets labeled as positive or negative
-
-## Model Architecture
-
-- **CNNs**: Trained separately on FER-2013, RAF-DB, and FER+
-- **BiLSTM**: Trained on Sentiment140 for sentiment classification
-- **Fusion MLP**: Takes CNN outputs + BiLSTM output and classifies final emotion/sentiment
-- **Gradio UI**: Displays image-caption pairs, predictions, ground truths, and confidence charts
-
-## Results
-
-- **Emotion Accuracy**: Up to **95%**
-- **Sentiment Accuracy**: Ranged from **82% to 95%**
-- **Fused Accuracy Estimate**: **88.5%–92.5%**
-
-## Features
-
-- Interactive Gradio demo
-- Clean, scrollable gallery format
-- Real-time confidence visualization
-- Ground truth vs predicted label comparison
-
-## Requirements
-
-This project runs entirely within a Python notebook environment such as Google Colab or Jupyter Notebook. The following libraries must be available:
-
-- TensorFlow
-- Keras
-- NumPy
-- Pandas
-- scikit-learn
-- matplotlib
-- seaborn
-- Gradio
-
-In Google Colab, you can install any missing dependencies with:
-
-```python
-!pip install gradio seaborn
-```
-
-## Running the Demo
-
-1. Open the notebook: `MultiModalModelBrendon.ipynb`
-2. Follow and run ALL the cells to:
-    - Load models and datasets
-    - Process and fuse image and text inputs
-    - Launch the interactive Gradio interface
-3. The trained models are located in the `/Needed Models/` directory if needed.
-4. The demo automatically samples and visualizes predictions using a scrollable gallery of image-caption pairs.
-
-No command-line usage is required.
-
-## Applications
-
-- Social media content moderation
-- Sentiment trend analysis
-- Mental health signal detection
-- Affective computing and digital wellness
-
-## Author
-
-**Brendon Vineyard**  
-Capstone Senior Project, SUNY Potsdam (Spring 2025)  
-Advisor: Dr. Laura Grabowski  
-Email: vineyabn207@potsdam.edu
+This project presents a deep learning system that classifies both **emotion** and **sentiment** from paired **image and text** inputs using a combination of computer vision and natural language processing techniques. It fuses signals from both modalities to achieve high performance on real-world affective content — especially in social media contexts.
 
 ---
 
-*This project was developed to fulfill the requirements of CIS 480: Senior Project in Computer Science at SUNY Potsdam.*
+## 🧠 Overview
+
+Traditional models analyze image and text separately, often missing cross-modal emotional signals. This project fuses them using:
+
+- ✅ Three CNNs trained on facial emotion datasets
+- ✅ A DistilBERT model trained on tweet sentiment data
+- ✅ A fusion MLP that combines both outputs
+- ✅ A **Gradio interface** that displays predictions and confidence levels interactively
+
+---
+
+## 📚 Datasets Used
+
+| Dataset       | Modality | Description                                     |
+|---------------|----------|-------------------------------------------------|
+| FER-2013      | Image    | Grayscale facial expressions                    |
+| RAF-DB        | Image    | Real-world affective faces                      |
+| FER+          | Image    | Enhanced FER with crowd-validated labels        |
+| Sentiment140  | Text     | 1.6M tweets labeled for positive/negative sentiment |
+
+---
+
+## 🔧 Architecture
+
+- 🖼️ **CNNs**: Trained independently on FER-2013, RAF-DB, FER+
+- 💬 **DistilBERT**: Fine-tuned on Sentiment140 for sentiment detection
+- 🔗 **Fusion Layer (MLP)**: Combines outputs from CNNs + BERT to produce joint classification
+- 🎛️ **Gradio UI**: Interactive gallery shows predictions, confidence scores, and ground truths
+
+---
+
+## 📊 Results
+
+| Metric            | Score Range |
+|-------------------|-------------|
+| Emotion Accuracy  | Up to **95%** |
+| Sentiment Accuracy| **82%–95%** |
+| Fusion Accuracy   | Estimated **88.5%–92.5%** |
+
+---
+
+## 🚀 Running the Demo
+
+1. Open: `MultiModalModelBrendon.ipynb` in **Google Colab** or **Jupyter Notebook**
+2. Follow all cell blocks to:
+   - Load models and preprocess input
+   - Fuse image and text streams
+   - Launch the Gradio interface
+3. View a scrollable gallery of image-caption predictions and confidence charts
+
+> ❗ **Note**: Large pretrained models are not included in this repo. Download links below.
+
+---
+
+## 📦 Model Downloads
+
+| Model                        | Download Link |
+|-----------------------------|----------------|
+| Fusion Emotion & Sentiment Model | [Google Drive Link 🔗](https://drive.google.com/file/d/1Pp9Vy1gNAJhTtugsFnHExmjKhhAzulBo/view?usp=sharing) |
+| FER2013 CNN Model            | [Google Drive Link 🔗](https://drive.google.com/file/d/1IT27LIiKd8LptksYkC_9OE1atJ6aWz47/view?usp=sharing) |
+| FER+ CNN Model              | [Google Drive Link 🔗](https://drive.google.com/file/d/1NrzpxEtkK9DQywLU6WIyQIq1PduoQ6YH/view?usp=sharing) |
+| RAF-DB CNN Model            | [Google Drive Link 🔗](https://drive.google.com/file/d/1eCU5I_dZkgDOwA39NscJqDJqlCXU2LJD/view?usp=sharing) |
+| Meta Classifier V2 Model  | [Google Drive Link 🔗](https://drive.google.com/file/d/1MxfpNEAxYssJiE3nTkaxl_RKCL64U7_c/view?usp=sharing) |
+
+> Place all models inside a `models/` directory or update their load paths in the notebook.
+
+---
+
+## 📁 Requirements
+
+Works in Google Colab or any Jupyter-based Python environment.
+
+**Core Libraries:**
+
+- `TensorFlow`, `Keras`
+- `Transformers` (Hugging Face)
+- `Gradio`
+- `NumPy`, `Pandas`, `matplotlib`, `seaborn`, `scikit-learn`
+
+Install missing packages in Colab:
+
+```python
+!pip install gradio transformers seaborn
+```
+
+## 🎯 Applications
+
+- Social media emotion & sentiment analysis
+- Mental health signal detection
+- Affective computing
+- Digital wellness tools
+- Content moderation and trend analysis
+
+## 👤 Author
+
+**Brendon Vineyard**
+
+Capstone Senior Project, SUNY Potsdam (Spring 2025)
+
+Advisor: Dr. Laura Grabowski
+
+📧 Email: brendonvineyard1@gmail.com
+
+*This project fulfills the requirements of CIS 480: Senior Project in Computer Science at SUNY Potsdam.*
+
