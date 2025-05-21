@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Multi-Modal Sentiment and Emotion Classification
 
 This project presents a multi-modal deep learning system that classifies both **emotion** and **sentiment** from paired **image and text** inputs. The system combines computer vision and natural language processing techniques to better understand affective content, particularly in social media contexts.
@@ -88,7 +87,3 @@ Email: vineyabn207@potsdam.edu
 ---
 
 *This project was developed to fulfill the requirements of CIS 480: Senior Project in Computer Science at SUNY Potsdam.*
-=======
-# Multimodal-Sentiment-Emotion-Classifier
-Classifies emotion (from images) and sentiment (from text) using a CNN + Transformer-based fusion model
->>>>>>> c56635355bac233513a8801ef3a223983738821f
